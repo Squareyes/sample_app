@@ -24,10 +24,15 @@ class User < ApplicationRecord
     SecureRandom.urlsafe_base64
   end
   
+  # Remembers a user in the database for use in persistent sessions.
   def remember
     self.remember_token = self.new_token
     update_attribute(:remember_digest, self.digest(remember_token))
   end
 
+  # Returns true if the given token matches the digest.
+  def authenticated?
+    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  end
 
 end
