@@ -1,3 +1,4 @@
+
 require 'test_helper'
 
 class UsersLoginTest < ActionDispatch::IntegrationTest
@@ -20,6 +21,8 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     delete logout_path
     assert_not is_logged_in?
     assert_redirected_to root_url
+    # Simulate a user clicking lohout in a second window
+    delete logout_path
     follow_redirect!
     assert_select "a[href=?]", login_path
     assert_select "a[href=?]", logout_path,      count: 0
