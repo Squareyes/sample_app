@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  def index
+  end
+
   def show
      @user = User.find(params[:id])
   end
@@ -16,6 +19,22 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
+  end
+
+# edit form to allow current users to update profile
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
   end
 
   private
