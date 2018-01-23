@@ -6,7 +6,6 @@
 <ul class="users">
   <% @users.each do |user| %>
     <%= render @users %>
-    # can call render directly on the variable - Rails infers that the variable is a list of user objects - Rails then iterated through each one with the _user partial
   <% end %>
 </ul>
 
