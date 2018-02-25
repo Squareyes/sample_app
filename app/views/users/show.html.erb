@@ -26,6 +26,10 @@
           </ol>
           <%= will_paginate @microposts %>
         <% end %>
+          <div class="feed">
+            <h3>Micropost Feed</h3>
+            <%= render 'shared/feed' %>
+          </div>
       </div>
     </div>
   </body>
