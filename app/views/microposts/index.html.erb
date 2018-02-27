@@ -1,17 +1,18 @@
 <% provide(:title, 'Gallery') %>
 
-    <aside class="col-md-4">
-    <h1>Submit Photos</h1>
+    <div class="submission">
+    <h3>Submit Photos</h3>
       <section class="micropost_form">
         <%= render 'shared/micropost_form' %>
       </section>
-    </aside>
+    </div>
 
 <h1>Gallery</h1>
-
+<div class="container">
 <ul class="microposts">
   <% @microposts.each do |micropost| %>
     <%= render @microposts %>
   <% end %>
 </ul>
+</div>
 
